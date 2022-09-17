@@ -1,12 +1,33 @@
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 
 public class Second {
     public static void main(String[] args){
-        output(resolve(input(), input()));
+        int month = input(), day = input(month);
+        output(resolve(month, day));
     }
     public static int input(){
-        return new Scanner(System.in).nextInt();
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            int month = scanner.nextInt();
+            if (month <= 12)
+                return month;
+            System.out.println("ошибка ввода месяцев 12");
+        }
+    }
+    public static int input(int month){
+        Calendar calendar = Calendar.getInstance();
+        Scanner scanner = new Scanner(System.in);
+        SimpleDateFormat format1 = new SimpleDateFormat("MMMM");
+        calendar.set(2022, month - 1, 1);
+        while(true){
+            int days = scanner.nextInt();
+            if (days <= calendar.getActualMaximum(Calendar.DAY_OF_MONTH))
+                return days;
+            System.out.printf("ошибка ввода дней в %s %d дней", format1.format(calendar.getTime()), calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+        }
+
     }
     public static int getWeekDay(int month, int day){
         Calendar calendar = Calendar.getInstance();
@@ -24,3 +45,4 @@ public class Second {
     }
 
 }
+
