@@ -30,10 +30,9 @@ public class Main {
     }
     public static int findNumber(int index) {
         int it = 0, num = 0;
-        while (index != it) {
-            if (checkNumberCorrect(num)) it++;
-            num++;
+        for(int i = 0;;i++){
+            if (checkNumberCorrect(i)) it++;
+            if (it > index) return i;
         }
-        return num;
     }
 }
