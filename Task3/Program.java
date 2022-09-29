@@ -22,16 +22,29 @@ public class Program {
         return SimpleColor.BLUE;
     }
     public static void main(String[] args) {
-        /*
-        my tests
-         */
+        printColorOfPoint(-3, 10);
+        printColorOfPoint(-1, 10);
+        printColorOfPoint(1, 1);
+        printColorOfPoint(-1, 4);
+        printColorOfPoint(0, 6);
+        printColorOfPoint(-5, 1);
+        printColorOfPoint(-3.5, 1.5);
+        printColorOfPoint(-3, 1.5);
+        printColorOfPoint(-5, -1);
+        printColorOfPoint(3, -4);
+        printColorOfPoint(4.4, -3);
+        printColorOfPoint(-1.1, 7.6);
         System.out.print("Input X: ");
         double x = input();
         System.out.print("Input Y: ");
         double y = input();
-        System.out.printf("(%f, %f) -> %s", x, y, getColor(x, y));
+
     }
     public static double input() {
         return new Scanner(System.in).nextDouble();
+    }
+    public static void printColorOfPoint(double x, double y) {
+        System.out.printf("(%f, %f) -> %s", x, y, getColor(x, y));
+        System.out.print('\n');
     }
 }
