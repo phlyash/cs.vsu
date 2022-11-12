@@ -58,7 +58,9 @@ public class GUIApplication extends JFrame{
         JFileChooser chooser = new JFileChooser();
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File f = chooser.getSelectedFile();
-            UtilsGUI.fillTableWithObjects(UtilsGUI.castToObject(FileHandler.readFile(f).candies), this.tableInputModel);
+            CandiesAndMoney input = FileHandler.readFile(f);
+            UtilsGUI.fillTableWithObjects(UtilsGUI.castToObject(input.candies), this.tableInputModel);
+            this.moneyInput.setText(Integer.toString(input.money));
         }
     }
     public void saveTableToFile() {
