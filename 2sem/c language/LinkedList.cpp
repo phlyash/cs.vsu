@@ -135,14 +135,14 @@ void addRecord() {
     cout << "Введите тип человека\n";
     cin >> cs;
     record->cs = static_cast<Case>(cs);
-    switch(cs) {
-        case 0:
+    switch(record->cs) {
+        case Student:
             enterRecordStudent(*record, cin);
             break;
-        case 1:
+        case Scientist:
             enterRecordScientist(*record, cin);
             break;
-        case 2:
+        case Worker:
             enterRecordWorker(*record, cin);
             break;
         default:
